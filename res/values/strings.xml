@@ -726,4 +726,7 @@ a        ren't members of any other group. [CHAR LIMIT=25] -->
     <!-- Attribution of a contact status update, when the time of update is known -->
     <string name="contact_status_update_attribution_with_date"><xliff:g id="date" example="3 hours ago">%1$s</xliff:g> via <xliff:g id="source" example="Google Talk">%2$s</xliff:g></string>
 
+    <!-- Virtual local storage account name -->
+    <string name="local_storage_account" product="tablet">Local tablet account</string>
+    <string name="local_storage_account" product="default">Local phone account</string>
 </resources>

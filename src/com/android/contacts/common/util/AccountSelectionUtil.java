@@ -112,28 +112,15 @@ public class AccountSelectionUtil {
         return getSelectAccountDialog(activity, resId, onClickListener, null);
     }
 
-    public static Dialog getSelectAccountDialog(Activity activity, int resId,
-            DialogInterface.OnClickListener onClickListener,
-            DialogInterface.OnCancelListener onCancelListener) {
-        return getSelectAccountDialog(activity, resId, onClickListener,
-            onCancelListener, true);
-    }
-
     /**
      * When OnClickListener or OnCancelListener is null, uses a default listener.
      * The default OnCancelListener just closes itself with {@link Dialog#dismiss()}.
      */
     public static Dialog getSelectAccountDialog(Activity activity, int resId,
             DialogInterface.OnClickListener onClickListener,
-            DialogInterface.OnCancelListener onCancelListener, boolean includeSIM) {
+            DialogInterface.OnCancelListener onCancelListener) {
         final AccountTypeManager accountTypes = AccountTypeManager.getInstance(activity);
-        List<AccountWithDataSet> writableAccountList;
-        if (includeSIM) {
-            writableAccountList = accountTypes.getAccounts(true);
-        } else {
-            writableAccountList = accountTypes.getAccounts(true,
-                AccountTypeManager.FLAG_ALL_ACCOUNTS_WITHOUT_SIM);
-        }
+        final List<AccountWithDataSet> writableAccountList = accountTypes.getAccounts(true);
 
         Log.i(LOG_TAG, "The number of available accounts: " + writableAccountList.size());
 
